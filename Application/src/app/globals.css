@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Modern Dark Theme */
+  --background: #0a0a0a;     /* deep black background */
+  --surface: #141414;        /* card surfaces */
+  --surface-2: #1a1a1a;      /* elevated panels */
+  --surface-3: #202020;      /* hover states */
+  --border: #2d2d2d;         /* borders */
+  --border-light: #3a3a3a;   /* lighter borders */
+  --muted: #888888;          /* muted text */
+  --foreground: #e8e8e8;     /* primary text */
+  --foreground-bright: #ffffff; /* bright text */
+  
+  /* Accent colors - vibrant for dark theme */
+  --primary: #3b82f6;        /* blue-500 */
+  --primary-hover: #2563eb;  /* blue-600 */
+  --primary-light: #60a5fa;  /* blue-400 */
+  --success: #10b981;        /* green-500 */
+  --warning: #f59e0b;        /* amber-500 */
+  --danger: #ef4444;         /* red-500 */
+  --purple: #a855f7;         /* purple-500 */
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Dark theme overrides */
+  .bg-white { background-color: var(--surface) !important; }
+  .bg-gray-50 { background-color: var(--surface-2) !important; }
+  .bg-gray-100 { background-color: var(--surface-3) !important; }
+  .bg-gray-900 { background-color: var(--background) !important; }
+  
+  .border-gray-200 { border-color: var(--border) !important; }
+  .border-gray-300 { border-color: var(--border-light) !important; }
+  
+  .text-gray-900 { color: var(--foreground-bright) !important; }
+  .text-gray-800 { color: var(--foreground) !important; }
+  .text-gray-700 { color: var(--foreground) !important; opacity: 0.95; }
+  .text-gray-600 { color: var(--muted) !important; }
+  .text-gray-500 { color: var(--muted) !important; opacity: 0.85; }
+  .text-gray-400 { color: var(--muted) !important; opacity: 0.7; }
+  
+  .hover\:bg-gray-50:hover { background-color: var(--surface-2) !important; }
+  .hover\:bg-gray-100:hover { background-color: var(--surface-3) !important; }
+  .hover\:bg-gray-200:hover { background-color: color-mix(in srgb, var(--surface-3) 90%, white) !important; }
+  .hover\:text-gray-600:hover { color: var(--foreground) !important; }
+  .hover\:text-gray-700:hover { color: var(--foreground-bright) !important; }
+  .hover\:text-gray-800:hover { color: var(--foreground-bright) !important; }
+  
+  .disabled\:bg-gray-50:disabled { background-color: var(--surface-2) !important; opacity: 0.5; }
+  .disabled\:bg-gray-100:disabled { background-color: var(--surface-2) !important; opacity: 0.5; }
+  .disabled\:text-gray-500:disabled { color: var(--muted) !important; opacity: 0.5; }
+  
+  /* Input fields */
+  input[type="text"],
+  input[type="password"],
+  input[type="number"],
+  textarea {
+    background-color: var(--surface-2) !important;
+    color: var(--foreground) !important;
+    border-color: var(--border) !important;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="number"]:focus,
+  textarea:focus {
+    background-color: var(--surface) !important;
+    border-color: var(--primary) !important;
+    outline: none !important;
+  }
+  
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--muted) !important;
+    opacity: 0.6 !important;
+  }
+  
+  /* Buttons */
+  .bg-blue-600 { background-color: var(--primary) !important; }
+  .hover\:bg-blue-700:hover { background-color: var(--primary-hover) !important; }
+  .bg-blue-100 { background-color: color-mix(in srgb, var(--primary) 20%, transparent) !important; }
+  .bg-blue-50 { background-color: color-mix(in srgb, var(--primary) 15%, transparent) !important; }
+  .text-blue-600 { color: var(--primary-light) !important; }
+  .border-blue-200 { border-color: color-mix(in srgb, var(--primary) 40%, transparent) !important; }
+  .border-blue-600 { border-color: var(--primary) !important; }
+  
+  .text-green-500 { color: var(--success) !important; }
+  .text-green-600 { color: var(--success) !important; }
+  .hover\:text-green-600:hover { color: var(--success) !important; }
+  .hover\:bg-green-50:hover { background-color: color-mix(in srgb, var(--success) 15%, transparent) !important; }
+  
+  .text-red-500 { color: var(--danger) !important; }
+  .text-red-600 { color: var(--danger) !important; }
+  .hover\:text-red-600:hover { color: var(--danger) !important; }
+  .hover\:bg-red-50:hover { background-color: color-mix(in srgb, var(--danger) 15%, transparent) !important; }
+  .hover\:bg-red-100:hover { background-color: color-mix(in srgb, var(--danger) 20%, transparent) !important; }
+  
+  .text-yellow-500 { color: var(--warning) !important; }
+  .text-orange-600 { color: var(--warning) !important; }
+  
+  .text-purple-600 { color: var(--purple) !important; }
+  
+  .disabled\:bg-gray-300:disabled,
+  .disabled\:bg-gray-400:disabled {
+    background-color: var(--surface-2) !important;
+    opacity: 0.4 !important;
+    cursor: not-allowed !important;
+  }
+  
+  /* Gradients */
+  .bg-gradient-to-br.from-blue-500.to-purple-600 {
+    background: linear-gradient(to bottom right, var(--primary), var(--purple)) !important;
+  }
+  
+  /* Status messages */
+  .bg-red-50 { background-color: color-mix(in srgb, var(--danger) 15%, transparent) !important; }
+  .border-red-200 { border-color: color-mix(in srgb, var(--danger) 40%, transparent) !important; }
+  .text-red-700 { color: #fca5a5 !important; }
+  
+  .bg-green-50 { background-color: color-mix(in srgb, var(--success) 15%, transparent) !important; }
+  .border-green-200 { border-color: color-mix(in srgb, var(--success) 40%, transparent) !important; }
+  .text-green-700 { color: #86efac !important; }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--surface);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-light);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted);
+  }
+}
