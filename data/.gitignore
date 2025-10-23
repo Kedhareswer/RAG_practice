@@ -1,0 +1,21 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+._*
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Logs
+*.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project specific
+# Add any specific ignores for input data here
